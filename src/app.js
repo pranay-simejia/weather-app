@@ -6,6 +6,8 @@ const app = express();
 
 const publicDirectoryPath = path.join(__dirname, '../public');
 
+const port = process.env.PORT || 3000;
+
 app.use(express.static(publicDirectoryPath));
 app.get('/weather', (req, res) => {
 	if (!req.query.address) {
@@ -30,6 +32,6 @@ app.get('/weather', (req, res) => {
 	});
 });
 
-app.listen(3000, () => {
-	console.log('server is up on port 3000');
+app.listen(port, () => {
+	console.log('server is up on port' + port);
 });
